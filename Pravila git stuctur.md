@@ -1,0 +1,1 @@
+![alt text](https://github.com/NikolaevMikhail1881/Project/blob/main/GIT%20STRUCTURE.jpg)
