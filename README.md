@@ -1,3 +1,3 @@
-docker build 
+docker build ./
 
-docker run "Countainer name" -p 33333:33333
+docker run --name "Countainer name" -p 33333:33333
