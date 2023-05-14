@@ -1,3 +1,4 @@
+#include <iostream>
 
 void table(int n){
     int *noun {new int[n]};
@@ -14,14 +15,15 @@ void table(int n){
     
 }
 
-int entering_arr(int arr[], int n){
+int entering_arr(int *arr[], int n){
     for (int i = 0; i < n; i++){
-        std::cin >> arr[i];
+        std::cin >> arr[i] >> std::endl;
     }
-    return arr[];
+    return;
 }
 
 int main(){
-    std::cout << table(10);
+    int *noun {new int[2]};
+    std::cout << entering_arr(noun[2], 2)<<'\n';
 
 }
