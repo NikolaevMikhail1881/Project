@@ -1,0 +1,354 @@
+\hypertarget{functions_8h}{}\doxysection{Файл prog/functions.h}
+\label{functions_8h}\index{prog/functions.h@{prog/functions.h}}
+
+
+Содержит объявления функций для парсинга, аутентификации, регистрации, проверки ответов, просмотра статистики, изменения дескриптора сокета и удаления статуса.  
+
+
+{\ttfamily \#include $<$QString$>$}\newline
+{\ttfamily \#include $<$QString\+List$>$}\newline
+{\ttfamily \#include $<$QDebug$>$}\newline
+{\ttfamily \#include \char`\"{}singletondb.\+h\char`\"{}}\newline
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_add0e651aa212e335654ed80829824d73}{parsing}} (QString data\+\_\+from\+\_\+client, int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Разбирает данные от клиента и выполняет соответствующее действие на основе разобранных данных. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_a8a240dbb1effe803a8c7b95afbede15e}{auth}} (QString log, QString pass)
+\begin{DoxyCompactList}\small\item\em Аутентификация пользователя. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_a5ef474e47f1bf47978ad9dd144f2ca06}{reg}} (QString login, QString pass, QString mail, int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Регистрирует нового пользователя. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_ac48868f0307de0e84b6564e578f78879}{check\+\_\+ans}} (QString numb, QString ans, int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Проверяет ответ, предоставленный пользователем. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_ada0322920170a148f9536d6a96fcf48b}{look\+\_\+stat}} (int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Получает статистику для первого пользователя. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_a98b1d9e530a3a9c4a88952992c2c9169}{look\+\_\+stat1}} (int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Получает статистику для второго пользователя. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_ab45658ef8179dbdadbe5a564e7722148}{look\+\_\+stat2}} (int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Получает статистику для третьего пользователя. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_a5a280a8348938dc9a76c7addb43dd755}{look\+\_\+stat3}} (int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Получает статистику для четвертого пользователя. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_a924cf6b1645afded70ed1ced349ed8b9}{change\+\_\+sock\+\_\+desc}} (QString login, int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Изменяет дескриптор сокета для пользователя. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8h_a73284da11a7c7e13da025cfaaf7ed270}{del\+\_\+status}} (int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Удаляет статистику пользователя. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Содержит объявления функций для парсинга, аутентификации, регистрации, проверки ответов, просмотра статистики, изменения дескриптора сокета и удаления статуса. 
+
+
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{functions_8h_a8a240dbb1effe803a8c7b95afbede15e}\label{functions_8h_a8a240dbb1effe803a8c7b95afbede15e}} 
+\index{functions.h@{functions.h}!auth@{auth}}
+\index{auth@{auth}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{auth()}{auth()}}
+{\footnotesize\ttfamily QByte\+Array auth (\begin{DoxyParamCaption}\item[{QString}]{log,  }\item[{QString}]{pass }\end{DoxyParamCaption})}
+
+
+
+Аутентификация пользователя. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em log} & Имя пользователя. \\
+\hline
+{\em pass} & Пароль пользователя. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат аутентификации.
+\end{DoxyReturn}
+Аутентификация пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em log} & Имя пользователя. \\
+\hline
+{\em pass} & Пароль пользователя.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий результат аутентификации. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a924cf6b1645afded70ed1ced349ed8b9}\label{functions_8h_a924cf6b1645afded70ed1ced349ed8b9}} 
+\index{functions.h@{functions.h}!change\_sock\_desc@{change\_sock\_desc}}
+\index{change\_sock\_desc@{change\_sock\_desc}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{change\_sock\_desc()}{change\_sock\_desc()}}
+{\footnotesize\ttfamily QByte\+Array change\+\_\+sock\+\_\+desc (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Изменяет дескриптор сокета для пользователя. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & Имя пользователя. \\
+\hline
+{\em sock\+\_\+desc} & Новый дескриптор сокета для пользователя. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат операции.
+\end{DoxyReturn}
+Изменяет дескриптор сокета для пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & QString, представляющий логин пользователя. \\
+\hline
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий результат операции изменения статуса. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_ac48868f0307de0e84b6564e578f78879}\label{functions_8h_ac48868f0307de0e84b6564e578f78879}} 
+\index{functions.h@{functions.h}!check\_ans@{check\_ans}}
+\index{check\_ans@{check\_ans}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{check\_ans()}{check\_ans()}}
+{\footnotesize\ttfamily QByte\+Array check\+\_\+ans (\begin{DoxyParamCaption}\item[{QString}]{numb,  }\item[{QString}]{ans,  }\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Проверяет ответ, предоставленный пользователем. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em numb} & Номер, связанный с ответом. \\
+\hline
+{\em ans} & Ответ, предоставленный пользователем. \\
+\hline
+{\em sock\+\_\+desc} & Дескриптор сокета для клиента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат проверки.
+\end{DoxyReturn}
+Проверяет ответ, предоставленный пользователем.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em numb} & QString, представляющий номер связанный с пользователем. \\
+\hline
+{\em ans} & QString, представляющий проверяемый ответ. \\
+\hline
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий результат операции проверки ответа. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a73284da11a7c7e13da025cfaaf7ed270}\label{functions_8h_a73284da11a7c7e13da025cfaaf7ed270}} 
+\index{functions.h@{functions.h}!del\_status@{del\_status}}
+\index{del\_status@{del\_status}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{del\_status()}{del\_status()}}
+{\footnotesize\ttfamily QByte\+Array del\+\_\+status (\begin{DoxyParamCaption}\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Удаляет статистику пользователя. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Дескриптор сокета для клиента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат операции.
+\end{DoxyReturn}
+Удаляет статистику пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий результат операции удаления статуса. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_ada0322920170a148f9536d6a96fcf48b}\label{functions_8h_ada0322920170a148f9536d6a96fcf48b}} 
+\index{functions.h@{functions.h}!look\_stat@{look\_stat}}
+\index{look\_stat@{look\_stat}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{look\_stat()}{look\_stat()}}
+{\footnotesize\ttfamily QByte\+Array look\+\_\+stat (\begin{DoxyParamCaption}\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Получает статистику для первого пользователя. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Дескриптор сокета для клиента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Запрошенная статистика.
+\end{DoxyReturn}
+Получает статистику для первого пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий статистику. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a98b1d9e530a3a9c4a88952992c2c9169}\label{functions_8h_a98b1d9e530a3a9c4a88952992c2c9169}} 
+\index{functions.h@{functions.h}!look\_stat1@{look\_stat1}}
+\index{look\_stat1@{look\_stat1}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{look\_stat1()}{look\_stat1()}}
+{\footnotesize\ttfamily QByte\+Array look\+\_\+stat1 (\begin{DoxyParamCaption}\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Получает статистику для второго пользователя. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Дескриптор сокета для клиента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Запрошенная статистика.
+\end{DoxyReturn}
+Получает статистику для второго пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий статистику. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_ab45658ef8179dbdadbe5a564e7722148}\label{functions_8h_ab45658ef8179dbdadbe5a564e7722148}} 
+\index{functions.h@{functions.h}!look\_stat2@{look\_stat2}}
+\index{look\_stat2@{look\_stat2}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{look\_stat2()}{look\_stat2()}}
+{\footnotesize\ttfamily QByte\+Array look\+\_\+stat2 (\begin{DoxyParamCaption}\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Получает статистику для третьего пользователя. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Дескриптор сокета для клиента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Запрошенная статистика.
+\end{DoxyReturn}
+Получает статистику для третьего пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий статистику. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a5a280a8348938dc9a76c7addb43dd755}\label{functions_8h_a5a280a8348938dc9a76c7addb43dd755}} 
+\index{functions.h@{functions.h}!look\_stat3@{look\_stat3}}
+\index{look\_stat3@{look\_stat3}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{look\_stat3()}{look\_stat3()}}
+{\footnotesize\ttfamily QByte\+Array look\+\_\+stat3 (\begin{DoxyParamCaption}\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Получает статистику для четвертого пользователя. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Дескриптор сокета для клиента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Запрошенная статистика.
+\end{DoxyReturn}
+Получает статистику для четвертого пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий статистику. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_add0e651aa212e335654ed80829824d73}\label{functions_8h_add0e651aa212e335654ed80829824d73}} 
+\index{functions.h@{functions.h}!parsing@{parsing}}
+\index{parsing@{parsing}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{parsing()}{parsing()}}
+{\footnotesize\ttfamily QByte\+Array parsing (\begin{DoxyParamCaption}\item[{QString}]{data\+\_\+from\+\_\+client,  }\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Разбирает данные от клиента и выполняет соответствующее действие на основе разобранных данных. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em data\+\_\+from\+\_\+client} & Данные, полученные от клиента. \\
+\hline
+{\em sock\+\_\+desc} & Дескриптор сокета для клиента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат выполненного действия.
+\end{DoxyReturn}
+Разбирает данные от клиента и выполняет соответствующее действие на основе разобранных данных.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em data\+\_\+from\+\_\+client} & QString, представляющий данные, полученные от клиента. \\
+\hline
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий результат выполненного действия или сообщение об ошибке. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8h_a5ef474e47f1bf47978ad9dd144f2ca06}\label{functions_8h_a5ef474e47f1bf47978ad9dd144f2ca06}} 
+\index{functions.h@{functions.h}!reg@{reg}}
+\index{reg@{reg}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{reg()}{reg()}}
+{\footnotesize\ttfamily QByte\+Array reg (\begin{DoxyParamCaption}\item[{QString}]{log,  }\item[{QString}]{pass,  }\item[{QString}]{mail,  }\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Регистрирует нового пользователя. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & Желаемое имя пользователя нового пользователя. \\
+\hline
+{\em pass} & Желаемый пароль нового пользователя. \\
+\hline
+{\em mail} & Электронная почта нового пользователя. \\
+\hline
+{\em sock\+\_\+desc} & Дескриптор сокета для клиента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат регистрации.
+\end{DoxyReturn}
+Регистрирует нового пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em log} & QString, обозначающий логин пользователя. \\
+\hline
+{\em pass} & QString, обозначающий пароль пользователя. \\
+\hline
+{\em mail} & QString, обозначающий электронную почту пользователя. \\
+\hline
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий результат операции регистрации. 
+\end{DoxyReturn}

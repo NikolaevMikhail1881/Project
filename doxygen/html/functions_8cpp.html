@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doxygen: Файл prog/functions.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doxygen<span id="projectnumber">&#160;221-352</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_dfe6bed94bcf04987b38a6f8493ab81c.html">prog</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл functions.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Описание функций сервера  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="functions_8h_source.html">functions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mytcpserver_8h_source.html">mytcpserver.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:add0e651aa212e335654ed80829824d73"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#add0e651aa212e335654ed80829824d73">parsing</a> (QString data_from_client, int sock_desc)</td></tr>
+<tr class="memdesc:add0e651aa212e335654ed80829824d73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает данные от клиента и выполняет соответствующее действие.  <br /></td></tr>
+<tr class="separator:add0e651aa212e335654ed80829824d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a240dbb1effe803a8c7b95afbede15e"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#a8a240dbb1effe803a8c7b95afbede15e">auth</a> (QString log, QString pass)</td></tr>
+<tr class="memdesc:a8a240dbb1effe803a8c7b95afbede15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Аутентифицирует пользователя с заданными учетными данными.  <br /></td></tr>
+<tr class="separator:a8a240dbb1effe803a8c7b95afbede15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0924a46f8581875527d125c0f839f0e8"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#a0924a46f8581875527d125c0f839f0e8">reg</a> (QString log, QString pass, QString mail, int sock_desc)</td></tr>
+<tr class="memdesc:a0924a46f8581875527d125c0f839f0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрирует нового пользователя в базе данных.  <br /></td></tr>
+<tr class="separator:a0924a46f8581875527d125c0f839f0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac48868f0307de0e84b6564e578f78879"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#ac48868f0307de0e84b6564e578f78879">check_ans</a> (QString numb, QString ans, int sock_desc)</td></tr>
+<tr class="memdesc:ac48868f0307de0e84b6564e578f78879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет ответ пользователя в базе данных.  <br /></td></tr>
+<tr class="separator:ac48868f0307de0e84b6564e578f78879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada0322920170a148f9536d6a96fcf48b"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#ada0322920170a148f9536d6a96fcf48b">look_stat</a> (int sock_desc)</td></tr>
+<tr class="memdesc:ada0322920170a148f9536d6a96fcf48b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает статистику первого пользователя из базы данных.  <br /></td></tr>
+<tr class="separator:ada0322920170a148f9536d6a96fcf48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98b1d9e530a3a9c4a88952992c2c9169"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#a98b1d9e530a3a9c4a88952992c2c9169">look_stat1</a> (int sock_desc)</td></tr>
+<tr class="memdesc:a98b1d9e530a3a9c4a88952992c2c9169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает статистику второго пользователя из базы данных.  <br /></td></tr>
+<tr class="separator:a98b1d9e530a3a9c4a88952992c2c9169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab45658ef8179dbdadbe5a564e7722148"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#ab45658ef8179dbdadbe5a564e7722148">look_stat2</a> (int sock_desc)</td></tr>
+<tr class="memdesc:ab45658ef8179dbdadbe5a564e7722148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает статистику третьего пользователя из базы данных.  <br /></td></tr>
+<tr class="separator:ab45658ef8179dbdadbe5a564e7722148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a280a8348938dc9a76c7addb43dd755"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#a5a280a8348938dc9a76c7addb43dd755">look_stat3</a> (int sock_desc)</td></tr>
+<tr class="memdesc:a5a280a8348938dc9a76c7addb43dd755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает статистику четвертого пользователя из базы данных.  <br /></td></tr>
+<tr class="separator:a5a280a8348938dc9a76c7addb43dd755"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a924cf6b1645afded70ed1ced349ed8b9"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#a924cf6b1645afded70ed1ced349ed8b9">change_sock_desc</a> (QString login, int sock_desc)</td></tr>
+<tr class="memdesc:a924cf6b1645afded70ed1ced349ed8b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение статуса пользователя в базе данных.  <br /></td></tr>
+<tr class="separator:a924cf6b1645afded70ed1ced349ed8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73284da11a7c7e13da025cfaaf7ed270"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#a73284da11a7c7e13da025cfaaf7ed270">del_status</a> (int sock_desc)</td></tr>
+<tr class="memdesc:a73284da11a7c7e13da025cfaaf7ed270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаляет статус пользователя в базе данных.  <br /></td></tr>
+<tr class="separator:a73284da11a7c7e13da025cfaaf7ed270"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Описание функций сервера </p>
+</div><h2 class="groupheader">Функции</h2>
+<a id="a8a240dbb1effe803a8c7b95afbede15e" name="a8a240dbb1effe803a8c7b95afbede15e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a240dbb1effe803a8c7b95afbede15e">&#9670;&#160;</a></span>auth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray auth </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>pass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Аутентифицирует пользователя с заданными учетными данными. </p>
+<p>Аутентификация пользователя.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">log</td><td>Имя пользователя. </td></tr>
+    <tr><td class="paramname">pass</td><td>Пароль пользователя.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>QByteArray, содержащий результат аутентификации. </dd></dl>
+
+</div>
+</div>
+<a id="a924cf6b1645afded70ed1ced349ed8b9" name="a924cf6b1645afded70ed1ced349ed8b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a924cf6b1645afded70ed1ced349ed8b9">&#9670;&#160;</a></span>change_sock_desc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray change_sock_desc </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>login</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sock_desc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Изменение статуса пользователя в базе данных. </p>
+<p>Изменяет дескриптор сокета для пользователя.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>QString, представляющий логин пользователя. </td></tr>
+    <tr><td class="paramname">sock_desc</td><td>Целое число, представляющее дескриптор сокета.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>QByteArray, содержащий результат операции изменения статуса. </dd></dl>
+
+</div>
+</div>
+<a id="ac48868f0307de0e84b6564e578f78879" name="ac48868f0307de0e84b6564e578f78879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac48868f0307de0e84b6564e578f78879">&#9670;&#160;</a></span>check_ans()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray check_ans </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>numb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>ans</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sock_desc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверяет ответ пользователя в базе данных. </p>
+<p>Проверяет ответ, предоставленный пользователем.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numb</td><td>QString, представляющий номер связанный с пользователем. </td></tr>
+    <tr><td class="paramname">ans</td><td>QString, представляющий проверяемый ответ. </td></tr>
+    <tr><td class="paramname">sock_desc</td><td>Целое число, представляющее дескриптор сокета.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>QByteArray, содержащий результат операции проверки ответа. </dd></dl>
+
+</div>
+</div>
+<a id="a73284da11a7c7e13da025cfaaf7ed270" name="a73284da11a7c7e13da025cfaaf7ed270"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73284da11a7c7e13da025cfaaf7ed270">&#9670;&#160;</a></span>del_status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray del_status </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sock_desc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Удаляет статус пользователя в базе данных. </p>
+<p>Удаляет статистику пользователя.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sock_desc</td><td>Целое число, представляющее дескриптор сокета.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>QByteArray, содержащий результат операции удаления статуса. </dd></dl>
+
+</div>
+</div>
+<a id="ada0322920170a148f9536d6a96fcf48b" name="ada0322920170a148f9536d6a96fcf48b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada0322920170a148f9536d6a96fcf48b">&#9670;&#160;</a></span>look_stat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray look_stat </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sock_desc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получает статистику первого пользователя из базы данных. </p>
+<p>Получает статистику для первого пользователя.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sock_desc</td><td>Целое число, представляющее дескриптор сокета.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>QByteArray, содержащий статистику. </dd></dl>
+
+</div>
+</div>
+<a id="a98b1d9e530a3a9c4a88952992c2c9169" name="a98b1d9e530a3a9c4a88952992c2c9169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98b1d9e530a3a9c4a88952992c2c9169">&#9670;&#160;</a></span>look_stat1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray look_stat1 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sock_desc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получает статистику второго пользователя из базы данных. </p>
+<p>Получает статистику для второго пользователя.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sock_desc</td><td>Целое число, представляющее дескриптор сокета.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>QByteArray, содержащий статистику. </dd></dl>
+
+</div>
+</div>
+<a id="ab45658ef8179dbdadbe5a564e7722148" name="ab45658ef8179dbdadbe5a564e7722148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab45658ef8179dbdadbe5a564e7722148">&#9670;&#160;</a></span>look_stat2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray look_stat2 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sock_desc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получает статистику третьего пользователя из базы данных. </p>
+<p>Получает статистику для третьего пользователя.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sock_desc</td><td>Целое число, представляющее дескриптор сокета.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>QByteArray, содержащий статистику. </dd></dl>
+
+</div>
+</div>
+<a id="a5a280a8348938dc9a76c7addb43dd755" name="a5a280a8348938dc9a76c7addb43dd755"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a280a8348938dc9a76c7addb43dd755">&#9670;&#160;</a></span>look_stat3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray look_stat3 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sock_desc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получает статистику четвертого пользователя из базы данных. </p>
+<p>Получает статистику для четвертого пользователя.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sock_desc</td><td>Целое число, представляющее дескриптор сокета.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>QByteArray, содержащий статистику. </dd></dl>
+
+</div>
+</div>
+<a id="add0e651aa212e335654ed80829824d73" name="add0e651aa212e335654ed80829824d73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add0e651aa212e335654ed80829824d73">&#9670;&#160;</a></span>parsing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray parsing </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>data_from_client</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sock_desc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получает данные от клиента и выполняет соответствующее действие. </p>
+<p>Разбирает данные от клиента и выполняет соответствующее действие на основе разобранных данных.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data_from_client</td><td>QString, представляющий данные, полученные от клиента. </td></tr>
+    <tr><td class="paramname">sock_desc</td><td>Целое число, представляющее дескриптор сокета.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>QByteArray, содержащий результат выполненного действия или сообщение об ошибке. </dd></dl>
+
+</div>
+</div>
+<a id="a0924a46f8581875527d125c0f839f0e8" name="a0924a46f8581875527d125c0f839f0e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0924a46f8581875527d125c0f839f0e8">&#9670;&#160;</a></span>reg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray reg </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>pass</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>mail</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sock_desc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Регистрирует нового пользователя в базе данных. </p>
+<p>Регистрирует нового пользователя.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">log</td><td>QString, обозначающий логин пользователя. </td></tr>
+    <tr><td class="paramname">pass</td><td>QString, обозначающий пароль пользователя. </td></tr>
+    <tr><td class="paramname">mail</td><td>QString, обозначающий электронную почту пользователя. </td></tr>
+    <tr><td class="paramname">sock_desc</td><td>Целое число, представляющее дескриптор сокета.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>QByteArray, содержащий результат операции регистрации. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>
