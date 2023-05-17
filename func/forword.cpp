@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 void defArrEntering(double** arr, int max)
 {    
@@ -14,15 +13,16 @@ void defArrShowing(double** arr, int max)
 {    
     for (int column = 0; column < max; column++){
         for (int row = 0; row < max; row++){
-            std::cout << arr[column][row];
+            std::cout << arr[column][row] << ' ';
         }
+        std::cout << '\n';
     }
 }
 
-int defSumRows(double** arr, int max, int row){
-    int result;
-    for (int column = 0; column < max; column++){
-        result = result + arr[row][column];
+int defSumRows(double** arr, int max, int colum){
+    int result = 0;
+    for (int row = 0; row < max; row++){
+        result = result + arr[colum][row];
     }
     return result;
 }
@@ -30,25 +30,50 @@ int defSumRows(double** arr, int max, int row){
 void defSecondPos(double** arr, int max){
     int sumRows;
     for (int column = 0; column < max; column++){
-        for (int row = 0; row < max; row++){
-            int sumRows = defSumRows((double**)arr, max);
+        sumRows = defSumRows((double**)arr, max, column);
+        for (int row = 0; row < max; row++){   
             arr[column][row] = arr[column][row] / sumRows;
         }
     }
 }
 
+void defForword(double** speech, double** words, int maxhigh, int maxlen){
+    double sum = 0;
+    
+    for (int column = 1; column<maxhigh; column++){
+        for (int row = 1; row < maxlen; row++){
+            sum = sum + (speech[column][row] * speech[column-1][row-1]);
+            std::cout << sum;
+        }
+    }
+
+}
+
 int main(){
-    const int speechmax = 2;
-    int countWords = 4;
+    const int speechmax = 10;
+    int countWords = 2;
     double** speech;
     double** words;
     speech = new double*[speechmax];
     for (int index = 0; index < speechmax; index++){
         speech[index] = new double[speechmax];
     }
-    defArrEntering(speech, 2);    
-    defArrShowing(speech, 2);
+    words = new double*[countWords];
+    for (int index = 0; index < countWords; index++){
+        words[index] = new double[speechmax];
+    }
+    
 
+    defArrEntering(speech, 2);
+    std::cout << '\n';    
+    defArrShowing(speech, 2);
+    std::cout << '\n';
+    /*defArrEntering(words, 2);
+    std::cout << '\n';
+    defArrShowing(speech, 2);
+    std::cout << '\n';*/
+    defForword(speech, words, 2, 2);
+    defArrShowing(words, 2);
 
 
 
@@ -59,6 +84,10 @@ int main(){
     }
     delete[] speech;
 
+    for(int index = 0; index < countWords; index++){
+        delete[] words[index];
+    }
+    delete[] words;
 }
 
 
