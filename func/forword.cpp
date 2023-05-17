@@ -1,7 +1,7 @@
 #include <iostream>
+#include <vector>
 
-
-void defArrEntering(int** arr, int max)
+void defArrEntering(double** arr, int max)
 {    
     for (int column = 0; column < max; column++){
         for (int row = 0; row < max; row++){
@@ -10,7 +10,7 @@ void defArrEntering(int** arr, int max)
     }
 }
 
-void defArrShowing(int** arr, int max)
+void defArrShowing(double** arr, int max)
 {    
     for (int column = 0; column < max; column++){
         for (int row = 0; row < max; row++){
@@ -19,34 +19,46 @@ void defArrShowing(int** arr, int max)
     }
 }
 
-int defSumRows(int** arr, int max){
+int defSumRows(double** arr, int max, int row){
     int result;
-    for (int row = 0; row < max; row++){
-        result = result + arr[0][row];
+    for (int column = 0; column < max; column++){
+        result = result + arr[row][column];
     }
     return result;
 }
 
-void defSecondPos(int** arr, int max){
+void defSecondPos(double** arr, int max){
+    int sumRows;
     for (int column = 0; column < max; column++){
         for (int row = 0; row < max; row++){
-            int sumRows = defSumRows((int**)arr, max);
+            int sumRows = defSumRows((double**)arr, max);
             arr[column][row] = arr[column][row] / sumRows;
         }
     }
 }
 
 int main(){
-    const int speechmax = 10;
+    const int speechmax = 2;
     int countWords = 4;
-    int speech[speechmax][speechmax];
-    int words[countWords][speechmax];
-    int test[2][2]{1, 2, 3, 4};
-    std::cout << "hello world";
-    // defArrEntering((int **)speech, speechmax);
-    // defArrEntering((int **)words, countWords);
-    defArrShowing((int**)test, 2);
-    std::cout << "hello world";
+    double** speech;
+    double** words;
+    speech = new double*[speechmax];
+    for (int index = 0; index < speechmax; index++){
+        speech[index] = new double[speechmax];
+    }
+    defArrEntering(speech, 2);    
+    defArrShowing(speech, 2);
+
+
+
+
+
+
+    for(int index = 0; index < speechmax; index++){
+        delete[] speech[index];
+    }
+    delete[] speech;
+
 }
 
 
