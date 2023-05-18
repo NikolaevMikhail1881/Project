@@ -37,15 +37,26 @@ void defSecondPos(double** arr, int max){
     }
 }
 
-void defForword(double** speech, double** words, int maxhigh, int maxlen){
+void defForwordSum(double** speech,double** words, int max){
     double sum = 0;
-    
-    for (int column = 1; column<maxhigh; column++){
-        for (int row = 1; row < maxlen; row++){
-            sum = sum + (speech[column][row] * speech[column-1][row-1]);
-            std::cout << sum;
+
+    for (int column = 0; column<max; column++){
+        for (int row = 0; row < max; row++){
+            sum = sum + (speech[column][row] * words[column][row]);
+            std::cout << sum << ' ';
         }
+        for (int row; row < max; row++){
+        words[column][row] = words[column][row] * sum;
     }
+    }
+
+    
+}
+
+
+void defForword(double** words, int lenmax, int himax){
+
+
 
 }
 
@@ -68,13 +79,15 @@ int main(){
     std::cout << '\n';    
     defArrShowing(speech, 2);
     std::cout << '\n';
-    /*defArrEntering(words, 2);
+    defArrEntering(words, 2);
     std::cout << '\n';
-    defArrShowing(speech, 2);
-    std::cout << '\n';*/
-    defForword(speech, words, 2, 2);
     defArrShowing(words, 2);
-
+    std::cout << '\n';
+    defForwordSum(speech,words, 2);
+    std::cout << '\n';
+    defArrShowing(words, 2);
+    
+    
 
 
 
