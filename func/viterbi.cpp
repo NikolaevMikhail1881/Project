@@ -1,54 +1,109 @@
 #include <iostream>
 
-void defArrEntering(double** arr, int max)
+
+void defArrEntering(double** arr, int hmax, int wmax)
 {    
-    for (int column = 0; column < max; column++){
-        for (int row = 0; row < max; row++){
+    for (int column = 0; column < hmax; column++){
+        for (int row = 0; row < wmax; row++){
             std::cin >> arr[column][row];
         }
     }
+    std::cout << '\n';
 }
 
-void defArrShowing(double** arr, int max)
+void defArrShowing(double** arr, int hmax, int wmax)
 {    
-    for (int column = 0; column < max; column++){
-        for (int row = 0; row < max; row++){
+    for (int column = 0; column < hmax; column++){
+        for (int row = 0; row < wmax; row++){
             std::cout << arr[column][row] << ' ';
         }
         std::cout << '\n';
     }
+    std::cout << '\n';
 }
 
-void defViterbi(double** words, double** speech, int max){
-    double result;    
-    double holder;
-    for(int column; column < max; column++){
-        for(int row; row < max; row++){
-            holder = words[column][row] * speech[column][row];
-            if (result < holder){
-                result = holder;
-            }
+int defSumRows(double** arr, int max, int colum){
+    int result = 0;
+    for (int row = 0; row < max; row++){
+        result = result + arr[colum][row];
+    }
+    return result;
+}
+
+void defSecondPos(double** arr, int hmax, int wmax){
+    int sumRows;
+    for (int column = 0; column < hmax; column++){
+        sumRows = defSumRows((double**)arr, wmax, column);
+        for (int row = 0; row < wmax; row++){   
+            arr[column][row] = arr[column][row] / sumRows;
         }
     }
+}
+
+void defViterbi(double** speech, double** words, int hmax, int wmax){
+    double sum = 0;
+    double result = 0;
+    for(int row = 0; row < wmax; row++){
+        for (int column = 0; column < hmax; column++){
+            sum = words[row][column] * speech[column][row] * words[column][row];
+            if (result < sum){
+                result = sum;
+            }
+            words[column][row] = result;
+            std::cout << sum << ' ';
+        }
+    }
+    std::cout << '\n';
 }
 
 
 
 int main(){
-const int speechmax = 10;
-    int countWords = 2;
+    int const speechmax = 10;
+    int countWords = 0;
+    std::cout << "Enter width of Words array: ";
+    std::cin >> countWords;
     double** speech;
     double** words;
     speech = new double*[speechmax];
     for (int index = 0; index < speechmax; index++){
         speech[index] = new double[speechmax];
     }
-    words = new double*[countWords];
-    for (int index = 0; index < countWords; index++){
-        words[index] = new double[speechmax];
+    words = new double*[speechmax];
+    for (int index = 0; index < speechmax; index++){
+        words[index] = new double[countWords];
     }
     
+/*    std::cout<< "Enter speech array (1 2 3...): ";
+    defArrEntering(words, countWords, speechmax);
+    std::cout << "\n";
+    defArrShowing(words, countWords, speechmax);
+    defSecondPos(words, countWords, speechmax);
+    std::cout << "\n";
+    defArrShowing(words, countWords, speechmax);
+*/
 
+
+
+    std::cout<< "Enter speech array (1 2 3...): " << '\n';
+    defArrEntering(speech, speechmax, speechmax);
+    std::cout << "Your's speech array: " <<'\n';    
+    defArrShowing(speech, speechmax, speechmax);
+    std::cout<< "Enter words array (1 2 3...): "<< '\n';
+    defArrEntering(words, countWords, speechmax);
+    std::cout << '\n';
+    std::cout << "Your's speech array: " <<'\n';  
+    defArrShowing(words, countWords, speechmax);
+    defSecondPos(speech, speechmax, speechmax);
+    std::cout << "Second pos of array SPEACH: "<< '\n';
+    defArrShowing(speech, speechmax, speechmax);
+    defSecondPos(words, countWords, speechmax); 
+    std::cout << "Second pos of array WORDS: "<< '\n';
+    defArrShowing(words, countWords, speechmax);
+    defViterbi(speech, words, speechmax, countWords);
+    std::cout << '\n';
+    std::cout << "Your's array WORDS after: "<<'\n';
+    defArrShowing(words, countWords, speechmax);
     
     
 
@@ -60,7 +115,7 @@ const int speechmax = 10;
     }
     delete[] speech;
 
-    for(int index = 0; index < countWords; index++){
+    for(int index = 0; index < speechmax; index++){
         delete[] words[index];
     }
     delete[] words;

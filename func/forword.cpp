@@ -1,22 +1,26 @@
+// Welcome to the piece of code 
 #include <iostream>
 
-void defArrEntering(double** arr, int max)
+
+void defArrEntering(double** arr, int hmax, int wmax)
 {    
-    for (int column = 0; column < max; column++){
-        for (int row = 0; row < max; row++){
+    for (int column = 0; column < hmax; column++){
+        for (int row = 0; row < wmax; row++){
             std::cin >> arr[column][row];
         }
     }
+    std::cout << '\n';
 }
 
-void defArrShowing(double** arr, int max)
+void defArrShowing(double** arr, int hmax, int wmax)
 {    
-    for (int column = 0; column < max; column++){
-        for (int row = 0; row < max; row++){
+    for (int column = 0; column < hmax; column++){
+        for (int row = 0; row < wmax; row++){
             std::cout << arr[column][row] << ' ';
         }
         std::cout << '\n';
     }
+    std::cout << '\n';
 }
 
 int defSumRows(double** arr, int max, int colum){
@@ -27,58 +31,76 @@ int defSumRows(double** arr, int max, int colum){
     return result;
 }
 
-void defSecondPos(double** arr, int max){
+void defSecondPos(double** arr, int hmax, int wmax){
     int sumRows;
-    for (int column = 0; column < max; column++){
-        sumRows = defSumRows((double**)arr, max, column);
-        for (int row = 0; row < max; row++){   
+    for (int column = 0; column < hmax; column++){
+        sumRows = defSumRows((double**)arr, wmax, column);
+        for (int row = 0; row < wmax; row++){   
             arr[column][row] = arr[column][row] / sumRows;
         }
     }
 }
 
-void defForword(double** speech, double** words, int max){
+void defForword(double** speech, double** words, int hmax, int wmax){
     double sum = 0;
-    for(int column; column < max; column++){
-        for (int row; row < max; row++){
-            sum = sum + speech[column][row] * words[column][row];
-        }
-    }
-    for(int column; column < max; column++){
-        for(int row; row < max; row++){
+    for(int row = 0; row < wmax; row++){
+        for (int column = 0; column < hmax; column++){
+            sum = sum + words[column][row] * speech[column][row];
             words[column][row] = words[column][row] * sum;
+            std::cout << sum << ' ';
         }
     }
+    std::cout << '\n';
 }
 
 
 
 int main(){
-    const int speechmax = 10;
-    int countWords = 2;
+    int const speechmax = 10;
+    int countWords = 6;
+    std::cout << "Enter width of Words array: ";
+    std::cin >> countWords;
     double** speech;
     double** words;
     speech = new double*[speechmax];
     for (int index = 0; index < speechmax; index++){
         speech[index] = new double[speechmax];
     }
-    words = new double*[countWords];
-    for (int index = 0; index < countWords; index++){
-        words[index] = new double[speechmax];
+    words = new double*[speechmax];
+    for (int index = 0; index < speechmax; index++){
+        words[index] = new double[countWords];
     }
     
+/*    std::cout<< "Enter speech array (1 2 3...): ";
+    defArrEntering(words, countWords, speechmax);
+    std::cout << "\n";
+    defArrShowing(words, countWords, speechmax);
+    defSecondPos(words, countWords, speechmax);
+    std::cout << "\n";
+    defArrShowing(words, countWords, speechmax);
+*/
 
-    defArrEntering(speech, 2);
-    std::cout << '\n';    
-    defArrShowing(speech, 2);
+
+
+        std::cout<< "Enter speech array (1 2 3...): " << '\n';
+    defArrEntering(speech, speechmax, speechmax);
+    std::cout << "Your's speech array: " <<'\n';    
+    defArrShowing(speech, speechmax, speechmax);
+    std::cout<< "Enter words array (1 2 3...): "<< '\n';
+    defArrEntering(words, countWords, speechmax);
     std::cout << '\n';
-    defArrEntering(words, 2);
+    std::cout << "Your's speech array: " <<'\n';  
+    defArrShowing(words, countWords, speechmax);
+    defSecondPos(speech, speechmax, speechmax);
+    std::cout << "Second pos of array SPEACH: "<< '\n';
+    defArrShowing(speech, speechmax, speechmax);
+    defSecondPos(words, countWords, speechmax); 
+    std::cout << "Second pos of array WORDS: "<< '\n';
+    defArrShowing(words, countWords, speechmax);
+    defForword(speech, words, speechmax, countWords);
     std::cout << '\n';
-    defArrShowing(words, 2);
-    std::cout << '\n';
-    defForword(speech,words, 2);
-    std::cout << '\n';
-    defArrShowing(words, 2);
+    std::cout << "Your's array WORDS after: "<<'\n';
+    defArrShowing(words, countWords, speechmax);
     
     
 
@@ -90,7 +112,7 @@ int main(){
     }
     delete[] speech;
 
-    for(int index = 0; index < countWords; index++){
+    for(int index = 0; index < speechmax; index++){
         delete[] words[index];
     }
     delete[] words;
@@ -99,29 +121,3 @@ int main(){
 
 
 
-
-
-
-
-
-/*int *noun {new int[n]};
-    int *verb {new int[n]};
-    int *adj {new int[n]};
-    int *pretext {new int[n]};
-    int *article {new int[n]};
-    int *period {new int[n]};
-    int *sign {new int[n]};
-    int *pronoun {new int[n]};
-    int *and_but {new int[n]};
-    int *els {new int[n]};
-    enteringArr(noun, n);
-    enteringArr(verb, n);
-    enteringArr(adj, n);
-    enteringArr(pretext, n);
-    enteringArr(article, n);
-    enteringArr(period, n);
-    enteringArr(sign, n);
-    enteringArr(pronoun, n);
-    enteringArr(and_but, n);
-    enteringArr(els, n);
-    */
