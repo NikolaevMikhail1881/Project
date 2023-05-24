@@ -45,12 +45,18 @@ void defViterbi(double** speech, double** words, int hmax, int wmax){
     double result = 0;
     for(int row = 0; row < wmax; row++){
         for (int column = 0; column < hmax; column++){
-            sum = words[row][column] * speech[column][row] * words[column][row];
+            sum = words[row][column]*speech[column][row] * words[column][row];
             if (result < sum){
                 result = sum;
             }
-            words[column][row] = result;
+            
             std::cout << sum << ' ';
+        }
+    }
+
+    for (int row = 0; row < wmax; row++){
+        for (int col = 0; col < hmax; col++){
+            words[col][row] = result;
         }
     }
     std::cout << '\n';

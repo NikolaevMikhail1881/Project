@@ -46,8 +46,11 @@ void defForword(double** speech, double** words, int hmax, int wmax){
     for(int row = 0; row < wmax; row++){
         for (int column = 0; column < hmax; column++){
             sum = sum + words[column][row] * speech[column][row];
+        }
+    }
+    for(int row = 0; row < wmax; row++){
+        for (int column = 0; column < hmax; column++){
             words[column][row] = words[column][row] * sum;
-            std::cout << sum << ' ';
         }
     }
     std::cout << '\n';
@@ -97,7 +100,7 @@ int main(){
     defSecondPos(words, countWords, speechmax); 
     std::cout << "Second pos of array WORDS: "<< '\n';
     defArrShowing(words, countWords, speechmax);
-    defForword(speech, words, speechmax, countWords);
+    defForword(speech, words, countWords, speechmax);
     std::cout << '\n';
     std::cout << "Your's array WORDS after: "<<'\n';
     defArrShowing(words, countWords, speechmax);
