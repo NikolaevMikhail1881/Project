@@ -60,7 +60,6 @@ void defForword(double** speech, double** words, int hmax, int wmax){
         sum = defMultiplyCols(speech, words, hmax, row);
         for (int column = 0; column < hmax; column++){
             words[column][row] = words[column][row] * sum;
-            std::cout << sum << ' ';
         }
     }
     std::cout << '\n';
