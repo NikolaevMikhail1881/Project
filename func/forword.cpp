@@ -12,15 +12,18 @@ void defArrEntering(double** arr, int hmax, int wmax)
     std::cout << '\n';
 }
 
-void defArrShowing(double** arr, int hmax, int wmax)
-{    
+std::string defArrShowing(double** arr, int hmax, int wmax)
+{  
+    std::string res = "";
     for (int column = 0; column < hmax; column++){
         for (int row = 0; row < wmax; row++){
-            std::cout << arr[column][row] << ' ';
+            res = res + arr[column][row] + ' ';
         }
-        std::cout << '\n';
+        res=res+ '\n';
     }
-    std::cout << '\n';
+    res=res+ '\n';
+    std::cout << res;
+    return res;
 }
 
 double defSumRows(double** arr, int max, int colum){
@@ -64,8 +67,10 @@ void defForword(double** speech, double** words, int hmax, int wmax){
     }
     std::cout << '\n';
 }
-
-
+//forward[i][j+1] = summa{k=0, num of chasti rechi} (forward[k][j]*speech[k,i]*words[j+1][i])
+//forward[i][j+1] = max{k=0, num of chasti rechi} (forward[k][j]*speech[k,i]*words[j+1][i])
+//speech[chast_rechi_prew][chast_rechi_next]
+//words[word][chast_rechi]
 
 int main(){
     int const speechmax = 9;
