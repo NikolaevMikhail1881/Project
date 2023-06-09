@@ -1,0 +1,210 @@
+\hypertarget{singletondb_8h_source}{}\doxysection{singletondb.\+h}
+\label{singletondb_8h_source}\index{prog/singletondb.h@{prog/singletondb.h}}
+\mbox{\hyperlink{singletondb_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ SINGLETONDB\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ SINGLETONDB\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QVariant>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QSqlDatabase>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QSqlQuery>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QSqlError>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <QSqlRecord>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <QByteArray>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_database}{Database}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_database_destroyer}{DatabaseDestroyer}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_database}{Database}}\ *\ pInstance;}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_database_destroyer}{\string~DatabaseDestroyer}}()\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ this-\/>pInstance;}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ initialize(\mbox{\hyperlink{class_database}{Database}}\ *\ p)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ this-\/>pInstance\ =\ p;}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_database}{Database}}\ \{}
+\DoxyCodeLine{00039\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_database}{Database}}\ *\ pInstance;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ initDB();}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ QSqlDatabase\ dbInstance;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_database_destroyer}{DatabaseDestroyer}}\ destroyer;}
+\DoxyCodeLine{00044\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_database_a4703c80e6969d33565ea340f768fdadf}{Database}}();}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_database_a4703c80e6969d33565ea340f768fdadf}{Database}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_database}{Database}}\&\ )\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_database}{Database}}\&\ operator\ =\ (\mbox{\hyperlink{class_database}{Database}}\ \&)=\textcolor{keyword}{delete};}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_database_a84d399a2ad58d69daab9b05330e1316d}{\string~Database}}();}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_database_destroyer}{DatabaseDestroyer}};}
+\DoxyCodeLine{00050\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_database}{Database}}*\ getInstance()\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pInstance)}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ pInstance\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_database_a4703c80e6969d33565ea340f768fdadf}{Database}}();}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ destroyer.initialize(pInstance);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pInstance;}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{static}\ QString\ count\_stat(\textcolor{keywordtype}{int}\ sock\_desc)}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ QByteArray\ result;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ QSqlQuery\ query;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}SELECT\ stat\ FROM\ user\ WHERE\ status=:sock\_desc"{}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:sock\_desc"{}},\ sock\_desc);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ query.exec();}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ QSqlRecord\ rec\ =\ query.record();}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ statIndex\ =\ rec.indexOf(\textcolor{stringliteral}{"{}stat"{}});}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(query.next())\ result.append(query.value(statIndex).toInt());}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ query.clear();}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ qDebug()<<result;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ QString\ count\_stat1(\textcolor{keywordtype}{int}\ sock\_desc)}
+\DoxyCodeLine{00077\ \ \ \ \ \{}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ QByteArray\ result;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ QSqlQuery\ query;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}SELECT\ stat1\ FROM\ user\ WHERE\ status=:sock\_desc"{}});}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:sock\_desc"{}},\ sock\_desc);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ query.exec();}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ QSqlRecord\ rec\ =\ query.record();}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ statIndex\ =\ rec.indexOf(\textcolor{stringliteral}{"{}stat1"{}});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(query.next())\ result.append(query.value(statIndex).toInt());}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ query.clear();}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ qDebug()<<result;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ QString\ count\_stat2(\textcolor{keywordtype}{int}\ sock\_desc)}
+\DoxyCodeLine{00094\ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ QByteArray\ result;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ QSqlQuery\ query;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}SELECT\ stat2\ FROM\ user\ WHERE\ status=:sock\_desc"{}});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:sock\_desc"{}},\ sock\_desc);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ query.exec();}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ QSqlRecord\ rec\ =\ query.record();}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ statIndex\ =\ rec.indexOf(\textcolor{stringliteral}{"{}stat2"{}});}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(query.next())\ result.append(query.value(statIndex).toInt());}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ query.clear();}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ qDebug()<<result;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ QString\ count\_stat3(\textcolor{keywordtype}{int}\ sock\_desc)}
+\DoxyCodeLine{00109\ \ \ \ \ \{}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ QByteArray\ result;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ QSqlQuery\ query;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}SELECT\ stat3\ FROM\ user\ WHERE\ status=:sock\_desc"{}});}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:sock\_desc"{}},\ sock\_desc);}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ query.exec();}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ QSqlRecord\ rec\ =\ query.record();}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ statIndex\ =\ rec.indexOf(\textcolor{stringliteral}{"{}stat3"{}});}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(query.next())\ result.append(query.value(statIndex).toInt());}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ query.clear();}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ qDebug()<<result;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ QByteArray\ \mbox{\hyperlink{functions_8cpp_ac48868f0307de0e84b6564e578f78879}{check\_ans}}(QString\ numb,\ QString\ ans,\ \textcolor{keywordtype}{int}\ sock\_desc)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ans==\textcolor{stringliteral}{"{}+"{}})}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ QSqlQuery\ query;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (numb==\textcolor{stringliteral}{"{}1"{}})\ query.prepare(\textcolor{stringliteral}{"{}UPDATE\ user\ SET\ stat1=stat1+1,\ stat=stat+1\ WHERE\ status=:sock\_desc;"{}});}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (numb==\textcolor{stringliteral}{"{}2"{}})\ query.prepare(\textcolor{stringliteral}{"{}UPDATE\ user\ SET\ stat2=stat2+1,\ stat=stat+1\ WHERE\ status=:sock\_desc"{}});}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ query.prepare(\textcolor{stringliteral}{"{}UPDATE\ user\ SET\ stat3=stat3+1,\ stat=stat+1\ WHERE\ status=:sock\_desc"{}});}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:sock\_desc"{}},\ sock\_desc);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ query.exec();}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ query.clear();}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}true"{}};}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ dbInstance.open();}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ QSqlQuery\ query;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (numb==\textcolor{charliteral}{'1'})\ query.prepare(\textcolor{stringliteral}{"{}UPDATE\ user\ SET\ stat1=stat1-\/1,\ stat=stat-\/1\ WHERE\ status=:sock\_desc;"{}});}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (numb==\textcolor{charliteral}{'2'})\ query.prepare(\textcolor{stringliteral}{"{}UPDATE\ user\ SET\ stat2=stat2-\/1,\ stat=stat-\/1\ WHERE\ status=:sock\_desc;"{}});}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ query.prepare(\textcolor{stringliteral}{"{}UPDATE\ user\ SET\ stat3=stat3-\/1,\ stat=stat-\/1\ WHERE\ status=:sock\_desc;"{}});}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:sock\_desc"{}},\ sock\_desc);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ query.exec();}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ dbInstance.close();}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ query.clear();}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}false"{}};}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \ \ QByteArray\ \mbox{\hyperlink{functions_8cpp_a8a240dbb1effe803a8c7b95afbede15e}{auth}}(QString\ log,\ QString\ pass)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ QSqlQuery\ query;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}SELECT\ *\ FROM\ user\ where\ log\ =\ :login\ and\ password\ =\ :password"{}}\ );}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:login"{}},\ log);}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:password"{}},\ pass);}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ query.exec();}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (query.next())\{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ qDebug()<<log;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}true"{}};}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}false"{}};}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ QByteArray\ \mbox{\hyperlink{functions_8cpp_a0924a46f8581875527d125c0f839f0e8}{reg}}(QString\ log,\ QString\ pass,\ QString\ mail,\ \textcolor{keywordtype}{int}\ sock\_desc)}
+\DoxyCodeLine{00170\ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ QSqlQuery\ query;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}SELECT\ *\ FROM\ user\ where\ log\ =\ :login"{}}\ );}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:login"{}},\ log);}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ query.exec();}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (query.next())\{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Данный\ пользователь\ зарегистрирован"{}};}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ qDebug()<<log;}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}INSERT\ INTO\ user\ (log,\ password,\ email,\ stat,\ status,\ stat1,\ stat2,\ stat3)\ VALUES\ (:login,\ :password,\ :email,\ 0,\ :sock\_desc,\ 0,\ 0,\ 0)"{}});}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:login"{}},\ log);}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:password"{}},\ pass);}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:email"{}},\ mail);}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:sock\_desc"{}},\ sock\_desc);}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ query.exec();}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}true"{}};}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ QByteArray\ change\_status(QString\ log,\ \textcolor{keywordtype}{int}\ sock\_desc)}
+\DoxyCodeLine{00190\ \ \ \ \ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ QSqlQuery\ query(dbInstance);}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}UPDATE\ user\ SET\ status=:sock\_desc\ WHERE\ log=:login"{}});}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:sock\_desc"{}},\ sock\_desc);}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:login"{}},\ log);}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ query.exec();}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ query.clear();}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}true"{}};}
+\DoxyCodeLine{00199\ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ QByteArray\ \mbox{\hyperlink{functions_8cpp_a73284da11a7c7e13da025cfaaf7ed270}{del\_status}}(\textcolor{keywordtype}{int}\ sock\_desc)}
+\DoxyCodeLine{00201\ \ \ \ \ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ QSqlQuery\ query;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}UPDATE\ user\ SET\ status=0\ WHERE\ status=:sock\_desc"{}});}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ query.bindValue(\textcolor{stringliteral}{"{}:sock\_desc"{}},\ sock\_desc);}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{comment}{//query.bindValue("{}:login"{},\ log);}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ query.exec();}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ query.clear();}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}true"{}};}
+\DoxyCodeLine{00210\ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \};}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SINGLETONDB\_H}}
+
+\end{DoxyCode}

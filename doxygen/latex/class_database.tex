@@ -1,0 +1,77 @@
+\hypertarget{class_database}{}\doxysection{Класс Database}
+\label{class_database}\index{Database@{Database}}
+
+
+Класс синглтон для обработки взаимодействия с базой данных.  
+
+
+
+
+{\ttfamily \#include $<$singletondb.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_database_a4b6df3efc0f83bcb540b2e1c4daf6ae3}\label{class_database_a4b6df3efc0f83bcb540b2e1c4daf6ae3}} 
+QString {\bfseries count\+\_\+stat1} (int sock\+\_\+desc)
+\item 
+\mbox{\Hypertarget{class_database_a08387ea21eef99f59cd11c13d68af756}\label{class_database_a08387ea21eef99f59cd11c13d68af756}} 
+QString {\bfseries count\+\_\+stat2} (int sock\+\_\+desc)
+\item 
+\mbox{\Hypertarget{class_database_a6cdacb1a4551f268f3bf61150a743485}\label{class_database_a6cdacb1a4551f268f3bf61150a743485}} 
+QString {\bfseries count\+\_\+stat3} (int sock\+\_\+desc)
+\item 
+\mbox{\Hypertarget{class_database_af98b03560f7309276bf83afceb2ee016}\label{class_database_af98b03560f7309276bf83afceb2ee016}} 
+QByte\+Array {\bfseries check\+\_\+ans} (QString numb, QString ans, int sock\+\_\+desc)
+\item 
+\mbox{\Hypertarget{class_database_a9b0b7f92667b9d66cbeb9e5dd50ccf06}\label{class_database_a9b0b7f92667b9d66cbeb9e5dd50ccf06}} 
+QByte\+Array {\bfseries auth} (QString log, QString pass)
+\item 
+\mbox{\Hypertarget{class_database_a5ff4416b241ff5629ea932ae60005596}\label{class_database_a5ff4416b241ff5629ea932ae60005596}} 
+QByte\+Array {\bfseries reg} (QString log, QString pass, QString mail, int sock\+\_\+desc)
+\item 
+\mbox{\Hypertarget{class_database_a4289f9629b63bba5a52ad098b1a878ed}\label{class_database_a4289f9629b63bba5a52ad098b1a878ed}} 
+QByte\+Array {\bfseries change\+\_\+status} (QString log, int sock\+\_\+desc)
+\item 
+\mbox{\Hypertarget{class_database_a16c9ce34d9a8cfad0179a45d7da186fc}\label{class_database_a16c9ce34d9a8cfad0179a45d7da186fc}} 
+QByte\+Array {\bfseries del\+\_\+status} (int sock\+\_\+desc)
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_database_ae5a1904f34c6a6c34d5ce932bd33dd19}\label{class_database_ae5a1904f34c6a6c34d5ce932bd33dd19}} 
+static \mbox{\hyperlink{class_database}{Database}} $\ast$ {\bfseries get\+Instance} ()
+\item 
+\mbox{\Hypertarget{class_database_aae5029e4bca11769383df90f1e9b2687}\label{class_database_aae5029e4bca11769383df90f1e9b2687}} 
+static QString {\bfseries count\+\_\+stat} (int sock\+\_\+desc)
+\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_database_a4703c80e6969d33565ea340f768fdadf}\label{class_database_a4703c80e6969d33565ea340f768fdadf}} 
+{\bfseries Database} ()
+\begin{DoxyCompactList}\small\item\em Конструирует объект \mbox{\hyperlink{class_database}{Database}} и инициализирует базу данных. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_database_a83f8b6d2941a4aee50f225e08e97291c}\label{class_database_a83f8b6d2941a4aee50f225e08e97291c}} 
+{\bfseries Database} (const \mbox{\hyperlink{class_database}{Database}} \&)=delete
+\item 
+\mbox{\Hypertarget{class_database_a6c7f04aad691f2be9b7bc8caae0a7cb7}\label{class_database_a6c7f04aad691f2be9b7bc8caae0a7cb7}} 
+\mbox{\hyperlink{class_database}{Database}} \& {\bfseries operator=} (\mbox{\hyperlink{class_database}{Database}} \&)=delete
+\item 
+\mbox{\Hypertarget{class_database_a84d399a2ad58d69daab9b05330e1316d}\label{class_database_a84d399a2ad58d69daab9b05330e1316d}} 
+{\bfseries $\sim$\+Database} ()
+\begin{DoxyCompactList}\small\item\em Деструктор для базы данных. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_database_a4588ee946c5d5c8fcff08e29489f676e}\label{class_database_a4588ee946c5d5c8fcff08e29489f676e}} 
+class {\bfseries Database\+Destroyer}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс синглтон для обработки взаимодействия с базой данных. 
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+prog/\mbox{\hyperlink{singletondb_8h}{singletondb.\+h}}\item 
+prog/\mbox{\hyperlink{singletondb_8cpp}{singletondb.\+cpp}}\end{DoxyCompactItemize}

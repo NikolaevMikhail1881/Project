@@ -1,0 +1,256 @@
+\hypertarget{functions_8cpp}{}\doxysection{Файл prog/functions.cpp}
+\label{functions_8cpp}\index{prog/functions.cpp@{prog/functions.cpp}}
+
+
+Описание функций сервера  
+
+
+{\ttfamily \#include \char`\"{}functions.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mytcpserver.\+h\char`\"{}}\newline
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_add0e651aa212e335654ed80829824d73}{parsing}} (QString data\+\_\+from\+\_\+client, int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Получает данные от клиента и выполняет соответствующее действие. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_a8a240dbb1effe803a8c7b95afbede15e}{auth}} (QString log, QString pass)
+\begin{DoxyCompactList}\small\item\em Аутентифицирует пользователя с заданными учетными данными. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_a0924a46f8581875527d125c0f839f0e8}{reg}} (QString log, QString pass, QString mail, int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Регистрирует нового пользователя в базе данных. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_ac48868f0307de0e84b6564e578f78879}{check\+\_\+ans}} (QString numb, QString ans, int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Проверяет ответ пользователя в базе данных. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_ada0322920170a148f9536d6a96fcf48b}{look\+\_\+stat}} (int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Получает статистику первого пользователя из базы данных. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_a98b1d9e530a3a9c4a88952992c2c9169}{look\+\_\+stat1}} (int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Получает статистику второго пользователя из базы данных. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_ab45658ef8179dbdadbe5a564e7722148}{look\+\_\+stat2}} (int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Получает статистику третьего пользователя из базы данных. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_a5a280a8348938dc9a76c7addb43dd755}{look\+\_\+stat3}} (int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Получает статистику четвертого пользователя из базы данных. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_a924cf6b1645afded70ed1ced349ed8b9}{change\+\_\+sock\+\_\+desc}} (QString login, int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Изменение статуса пользователя в базе данных. \end{DoxyCompactList}\item 
+QByte\+Array \mbox{\hyperlink{functions_8cpp_a73284da11a7c7e13da025cfaaf7ed270}{del\+\_\+status}} (int sock\+\_\+desc)
+\begin{DoxyCompactList}\small\item\em Удаляет статус пользователя в базе данных. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Описание функций сервера 
+
+
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{functions_8cpp_a8a240dbb1effe803a8c7b95afbede15e}\label{functions_8cpp_a8a240dbb1effe803a8c7b95afbede15e}} 
+\index{functions.cpp@{functions.cpp}!auth@{auth}}
+\index{auth@{auth}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{auth()}{auth()}}
+{\footnotesize\ttfamily QByte\+Array auth (\begin{DoxyParamCaption}\item[{QString}]{log,  }\item[{QString}]{pass }\end{DoxyParamCaption})}
+
+
+
+Аутентифицирует пользователя с заданными учетными данными. 
+
+Аутентификация пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em log} & Имя пользователя. \\
+\hline
+{\em pass} & Пароль пользователя.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий результат аутентификации. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_a924cf6b1645afded70ed1ced349ed8b9}\label{functions_8cpp_a924cf6b1645afded70ed1ced349ed8b9}} 
+\index{functions.cpp@{functions.cpp}!change\_sock\_desc@{change\_sock\_desc}}
+\index{change\_sock\_desc@{change\_sock\_desc}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{change\_sock\_desc()}{change\_sock\_desc()}}
+{\footnotesize\ttfamily QByte\+Array change\+\_\+sock\+\_\+desc (\begin{DoxyParamCaption}\item[{QString}]{login,  }\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Изменение статуса пользователя в базе данных. 
+
+Изменяет дескриптор сокета для пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & QString, представляющий логин пользователя. \\
+\hline
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий результат операции изменения статуса. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_ac48868f0307de0e84b6564e578f78879}\label{functions_8cpp_ac48868f0307de0e84b6564e578f78879}} 
+\index{functions.cpp@{functions.cpp}!check\_ans@{check\_ans}}
+\index{check\_ans@{check\_ans}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{check\_ans()}{check\_ans()}}
+{\footnotesize\ttfamily QByte\+Array check\+\_\+ans (\begin{DoxyParamCaption}\item[{QString}]{numb,  }\item[{QString}]{ans,  }\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Проверяет ответ пользователя в базе данных. 
+
+Проверяет ответ, предоставленный пользователем.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em numb} & QString, представляющий номер связанный с пользователем. \\
+\hline
+{\em ans} & QString, представляющий проверяемый ответ. \\
+\hline
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий результат операции проверки ответа. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_a73284da11a7c7e13da025cfaaf7ed270}\label{functions_8cpp_a73284da11a7c7e13da025cfaaf7ed270}} 
+\index{functions.cpp@{functions.cpp}!del\_status@{del\_status}}
+\index{del\_status@{del\_status}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{del\_status()}{del\_status()}}
+{\footnotesize\ttfamily QByte\+Array del\+\_\+status (\begin{DoxyParamCaption}\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Удаляет статус пользователя в базе данных. 
+
+Удаляет статистику пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий результат операции удаления статуса. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_ada0322920170a148f9536d6a96fcf48b}\label{functions_8cpp_ada0322920170a148f9536d6a96fcf48b}} 
+\index{functions.cpp@{functions.cpp}!look\_stat@{look\_stat}}
+\index{look\_stat@{look\_stat}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{look\_stat()}{look\_stat()}}
+{\footnotesize\ttfamily QByte\+Array look\+\_\+stat (\begin{DoxyParamCaption}\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Получает статистику первого пользователя из базы данных. 
+
+Получает статистику для первого пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий статистику. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_a98b1d9e530a3a9c4a88952992c2c9169}\label{functions_8cpp_a98b1d9e530a3a9c4a88952992c2c9169}} 
+\index{functions.cpp@{functions.cpp}!look\_stat1@{look\_stat1}}
+\index{look\_stat1@{look\_stat1}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{look\_stat1()}{look\_stat1()}}
+{\footnotesize\ttfamily QByte\+Array look\+\_\+stat1 (\begin{DoxyParamCaption}\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Получает статистику второго пользователя из базы данных. 
+
+Получает статистику для второго пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий статистику. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_ab45658ef8179dbdadbe5a564e7722148}\label{functions_8cpp_ab45658ef8179dbdadbe5a564e7722148}} 
+\index{functions.cpp@{functions.cpp}!look\_stat2@{look\_stat2}}
+\index{look\_stat2@{look\_stat2}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{look\_stat2()}{look\_stat2()}}
+{\footnotesize\ttfamily QByte\+Array look\+\_\+stat2 (\begin{DoxyParamCaption}\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Получает статистику третьего пользователя из базы данных. 
+
+Получает статистику для третьего пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий статистику. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_a5a280a8348938dc9a76c7addb43dd755}\label{functions_8cpp_a5a280a8348938dc9a76c7addb43dd755}} 
+\index{functions.cpp@{functions.cpp}!look\_stat3@{look\_stat3}}
+\index{look\_stat3@{look\_stat3}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{look\_stat3()}{look\_stat3()}}
+{\footnotesize\ttfamily QByte\+Array look\+\_\+stat3 (\begin{DoxyParamCaption}\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Получает статистику четвертого пользователя из базы данных. 
+
+Получает статистику для четвертого пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий статистику. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_add0e651aa212e335654ed80829824d73}\label{functions_8cpp_add0e651aa212e335654ed80829824d73}} 
+\index{functions.cpp@{functions.cpp}!parsing@{parsing}}
+\index{parsing@{parsing}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{parsing()}{parsing()}}
+{\footnotesize\ttfamily QByte\+Array parsing (\begin{DoxyParamCaption}\item[{QString}]{data\+\_\+from\+\_\+client,  }\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Получает данные от клиента и выполняет соответствующее действие. 
+
+Разбирает данные от клиента и выполняет соответствующее действие на основе разобранных данных.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em data\+\_\+from\+\_\+client} & QString, представляющий данные, полученные от клиента. \\
+\hline
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий результат выполненного действия или сообщение об ошибке. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_a0924a46f8581875527d125c0f839f0e8}\label{functions_8cpp_a0924a46f8581875527d125c0f839f0e8}} 
+\index{functions.cpp@{functions.cpp}!reg@{reg}}
+\index{reg@{reg}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{reg()}{reg()}}
+{\footnotesize\ttfamily QByte\+Array reg (\begin{DoxyParamCaption}\item[{QString}]{log,  }\item[{QString}]{pass,  }\item[{QString}]{mail,  }\item[{int}]{sock\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Регистрирует нового пользователя в базе данных. 
+
+Регистрирует нового пользователя.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em log} & QString, обозначающий логин пользователя. \\
+\hline
+{\em pass} & QString, обозначающий пароль пользователя. \\
+\hline
+{\em mail} & QString, обозначающий электронную почту пользователя. \\
+\hline
+{\em sock\+\_\+desc} & Целое число, представляющее дескриптор сокета.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QByte\+Array, содержащий результат операции регистрации. 
+\end{DoxyReturn}

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doxygen: Исходный файл prog/functions.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doxygen<span id="projectnumber">&#160;221-352</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_dfe6bed94bcf04987b38a6f8493ab81c.html">prog</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">functions.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="functions_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef FUNCTIONS_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define FUNCTIONS_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;QStringList&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;QDebug&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="singletondb_8h.html">singletondb.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>QByteArray <a class="code hl_function" href="functions_8h.html#add0e651aa212e335654ed80829824d73">parsing</a>(QString data_from_client, <span class="keywordtype">int</span> sock_desc);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>QByteArray <a class="code hl_function" href="functions_8h.html#a8a240dbb1effe803a8c7b95afbede15e">auth</a>(QString log, QString pass);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>QByteArray <a class="code hl_function" href="functions_8h.html#a5ef474e47f1bf47978ad9dd144f2ca06">reg</a>(QString login, QString pass, QString mail, <span class="keywordtype">int</span> sock_desc);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>QByteArray <a class="code hl_function" href="functions_8h.html#ac48868f0307de0e84b6564e578f78879">check_ans</a>(QString numb, QString ans, <span class="keywordtype">int</span> sock_desc);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>QByteArray <a class="code hl_function" href="functions_8h.html#ada0322920170a148f9536d6a96fcf48b">look_stat</a>(<span class="keywordtype">int</span> sock_desc);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>QByteArray <a class="code hl_function" href="functions_8h.html#a98b1d9e530a3a9c4a88952992c2c9169">look_stat1</a>(<span class="keywordtype">int</span> sock_desc);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>QByteArray <a class="code hl_function" href="functions_8h.html#ab45658ef8179dbdadbe5a564e7722148">look_stat2</a>(<span class="keywordtype">int</span> sock_desc);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>QByteArray <a class="code hl_function" href="functions_8h.html#a5a280a8348938dc9a76c7addb43dd755">look_stat3</a>(<span class="keywordtype">int</span> sock_desc);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>QByteArray <a class="code hl_function" href="functions_8h.html#a924cf6b1645afded70ed1ced349ed8b9">change_sock_desc</a>(QString login, <span class="keywordtype">int</span> sock_desc);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>QByteArray <a class="code hl_function" href="functions_8h.html#a73284da11a7c7e13da025cfaaf7ed270">del_status</a>(<span class="keywordtype">int</span> sock_desc);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#endif </span><span class="comment">// FUNCTIONS_H</span></div>
+<div class="ttc" id="afunctions_8h_html_a5a280a8348938dc9a76c7addb43dd755"><div class="ttname"><a href="functions_8h.html#a5a280a8348938dc9a76c7addb43dd755">look_stat3</a></div><div class="ttdeci">QByteArray look_stat3(int sock_desc)</div><div class="ttdoc">Получает статистику для четвертого пользователя.</div><div class="ttdef"><b>Definition:</b> functions.cpp:169</div></div>
+<div class="ttc" id="afunctions_8h_html_a5ef474e47f1bf47978ad9dd144f2ca06"><div class="ttname"><a href="functions_8h.html#a5ef474e47f1bf47978ad9dd144f2ca06">reg</a></div><div class="ttdeci">QByteArray reg(QString login, QString pass, QString mail, int sock_desc)</div><div class="ttdoc">Регистрирует нового пользователя.</div><div class="ttdef"><b>Definition:</b> functions.cpp:93</div></div>
+<div class="ttc" id="afunctions_8h_html_a73284da11a7c7e13da025cfaaf7ed270"><div class="ttname"><a href="functions_8h.html#a73284da11a7c7e13da025cfaaf7ed270">del_status</a></div><div class="ttdeci">QByteArray del_status(int sock_desc)</div><div class="ttdoc">Удаляет статистику пользователя.</div><div class="ttdef"><b>Definition:</b> functions.cpp:199</div></div>
+<div class="ttc" id="afunctions_8h_html_a8a240dbb1effe803a8c7b95afbede15e"><div class="ttname"><a href="functions_8h.html#a8a240dbb1effe803a8c7b95afbede15e">auth</a></div><div class="ttdeci">QByteArray auth(QString log, QString pass)</div><div class="ttdoc">Аутентификация пользователя.</div><div class="ttdef"><b>Definition:</b> functions.cpp:74</div></div>
+<div class="ttc" id="afunctions_8h_html_a924cf6b1645afded70ed1ced349ed8b9"><div class="ttname"><a href="functions_8h.html#a924cf6b1645afded70ed1ced349ed8b9">change_sock_desc</a></div><div class="ttdeci">QByteArray change_sock_desc(QString login, int sock_desc)</div><div class="ttdoc">Изменяет дескриптор сокета для пользователя.</div><div class="ttdef"><b>Definition:</b> functions.cpp:184</div></div>
+<div class="ttc" id="afunctions_8h_html_a98b1d9e530a3a9c4a88952992c2c9169"><div class="ttname"><a href="functions_8h.html#a98b1d9e530a3a9c4a88952992c2c9169">look_stat1</a></div><div class="ttdeci">QByteArray look_stat1(int sock_desc)</div><div class="ttdoc">Получает статистику для второго пользователя.</div><div class="ttdef"><b>Definition:</b> functions.cpp:141</div></div>
+<div class="ttc" id="afunctions_8h_html_ab45658ef8179dbdadbe5a564e7722148"><div class="ttname"><a href="functions_8h.html#ab45658ef8179dbdadbe5a564e7722148">look_stat2</a></div><div class="ttdeci">QByteArray look_stat2(int sock_desc)</div><div class="ttdoc">Получает статистику для третьего пользователя.</div><div class="ttdef"><b>Definition:</b> functions.cpp:155</div></div>
+<div class="ttc" id="afunctions_8h_html_ac48868f0307de0e84b6564e578f78879"><div class="ttname"><a href="functions_8h.html#ac48868f0307de0e84b6564e578f78879">check_ans</a></div><div class="ttdeci">QByteArray check_ans(QString numb, QString ans, int sock_desc)</div><div class="ttdoc">Проверяет ответ, предоставленный пользователем.</div><div class="ttdef"><b>Definition:</b> functions.cpp:111</div></div>
+<div class="ttc" id="afunctions_8h_html_ada0322920170a148f9536d6a96fcf48b"><div class="ttname"><a href="functions_8h.html#ada0322920170a148f9536d6a96fcf48b">look_stat</a></div><div class="ttdeci">QByteArray look_stat(int sock_desc)</div><div class="ttdoc">Получает статистику для первого пользователя.</div><div class="ttdef"><b>Definition:</b> functions.cpp:127</div></div>
+<div class="ttc" id="afunctions_8h_html_add0e651aa212e335654ed80829824d73"><div class="ttname"><a href="functions_8h.html#add0e651aa212e335654ed80829824d73">parsing</a></div><div class="ttdeci">QByteArray parsing(QString data_from_client, int sock_desc)</div><div class="ttdoc">Разбирает данные от клиента и выполняет соответствующее действие на основе разобранных данных.</div><div class="ttdef"><b>Definition:</b> functions.cpp:16</div></div>
+<div class="ttc" id="asingletondb_8h_html"><div class="ttname"><a href="singletondb_8h.html">singletondb.h</a></div><div class="ttdoc">Содержит объявление класса синглтона и связанные с ним функции.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>
