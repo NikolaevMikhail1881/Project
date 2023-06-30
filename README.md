@@ -8,4 +8,4 @@ docker tag 221-352_mironov:latest Miron1968/221-352_mironov:latest
 
 docker push Miron1968/221-352_mironov:latest
 
-Docker: https://hub.docker.com/repository/docker/Miron1968/221-352_mironov
+Docker: https://hub.docker.com/repository/docker/miron1968/221-352_mironov
